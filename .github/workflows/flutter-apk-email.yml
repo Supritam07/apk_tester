@@ -25,11 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
-        working-directory: emoji_table_app
+        working-directory: emoji_table_app_new
 
       - name: Build APK
         run: flutter build apk --release
-        working-directory: emoji_table_app
+        working-directory: emoji_table_app_new
 
       - name: Email APK
         uses: dawidd6/action-send-mail@v3
@@ -42,4 +42,4 @@ jobs:
           to: supritam310797@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
           body: 'The latest APK build is attached.'
-          attachments: emoji_table_app/build/app/outputs/flutter-apk/app-release.apk 
+          attachments: emoji_table_app_new/build/app/outputs/flutter-apk/app-release.apk 
